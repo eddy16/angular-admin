@@ -1,0 +1,82 @@
+<div class="widgets">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="New Product" ba-panel-class="with-scroll">
+                <ba-wizard>
+                    <ba-wizard-step title="Product Info" form="vm.productInfoForm">
+                        <form name="vm.productInfoForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.productInfoForm.productName.$invalid && (vm.productInfoForm.productName.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="productName">Product name</label>
+                                        <input type="text" class="form-control" id="productName" name="productName" placeholder="Product name" ng-model="vm.productInfo.productName" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                    <div class="form-group" ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="productId">Product id</label>
+                                        <input type="text" class="form-control" id="productId" name="productId" placeholder="productId" ng-model="vm.productInfo.productId" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="productCategory">Category</label>
+                                        <select class="form-control" title="Category" ng-model="vm.productInfo.productCategory" selectpicker>
+                                            <option selected>Electronics</option>
+                                            <option>Toys</option>
+                                            <option>Accessories</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" ng-class="{'has-error': vm.productInfoForm.productBrand.$invalid && (vm.productInfoForm.productBrand.$dirty || vm.productInfoForm.$submitted)}">
+                                        <label for="productBrand ">Product Brand</label>
+                                        <input type="text" class="form-control" id="productBrand" name="productBrand" placeholder="Product brand" ng-model="vm.productInfo.productBrand" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ba-wizard-step>
+                    <ba-wizard-step title="Pricing"  form="vm.pricingForm">
+                        <form name="vm.pricingForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group has-feedback"
+                                         ng-class="{'has-error': vm.pricingForm.price.$invalid && (vm.pricingForm.price.$dirty || vm.pricingForm.$submitted)}">
+                                        <label for="price">Price</label>
+                                        <input type="text" class="form-control" id="price" name="price" placeholder="Price" ng-model="vm.pricing.price" required>
+                                        <span class="help-block error-block basic-block">Required</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="iva"></label>
+                                        <input class="form-control" id="iva" name="iva" placeholder="Iva" ng-model="vm.pricing.iva" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="stock"></label>
+                                        <input class="form-control" id="stock" name="stock" placeholder="Stock" ng-model="vm.pricing.stock" >
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </ba-wizard-step>
+                    <ba-wizard-step title="Confirm">
+                        <form class="form-horizontal" name="vm.confirmForm" novalidate>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <button class="btn btn-primary" ng-click="saveProduct()">
+                                  Confirm
+                                </button>
+                            </div>
+                            </div>
+                        </form>
+                    </ba-wizard-step>
+                </ba-wizard>
+            </div>
+        </div>
+    </div>
+</div>
