@@ -1,0 +1,78 @@
+<div class="widgets">
+	<div class="row">
+		<div class="col-md-12">
+			<div ba-panel ba-panel-title="Products" ba-panel-class="with-scroll">
+				<table class="table table-bordered table-hover table-condensed">
+					<tr>
+						<td>Id</td>
+						<td>Name</td>
+						<td>Category</td>
+						<td>Brand</td>
+						<td>Price</td>
+						<td>Iva</td>
+						<td>Stock</td>
+						<td>Actions</td>
+					</tr>
+					<tr ng-repeat="product in vm.products" class="editable-row">
+						<td>
+							{{product.productId}}
+						</td>
+						<td>
+                <span editable-text="product.name" e-name="name" e-form="rowform" e-required>
+                  {{ product.name }}
+                </span>
+						</td>
+						<td class="select-td">
+                <span editable-select="product.category" e-name="category" e-form="rowform" e-selectpicker
+                      e-ng-options="c.value as c.text for c in vm.categories">
+                  {{ product.category }}
+                </span>
+						</td>
+						<td>
+                <span editable-text="product.brand" e-name="brand" e-form="rowform" e-required>
+                  {{ product.brand }}
+                </span>
+						</td>
+						<td>
+                <span editable-text="product.price" e-name="price" e-form="rowform" e-required>
+                  {{ product.price || 'empty' }}
+                </span>
+						</td>
+						<td>
+                <span editable-text="product.iva" e-name="iva" e-form="rowform" e-required>
+                  {{ product.iva || 'empty' }}
+                </span>
+						</td>
+						<td>
+                <span editable-text="product.stock" e-name="stock" e-form="rowform" e-required>
+                  {{ product.stock || 'empty' }}
+                </span>
+						</td>
+						<td>
+							<form editable-form name="rowform" ng-show="rowform.$visible"
+							      class="form-buttons form-inline"
+							      shown="inserted == product">
+								<button type="submit" ng-disabled="rowform.$waiting"
+								        class="btn btn-primary editable-table-button btn-xs">
+									Save
+								</button>
+								<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+								        class="btn btn-default editable-table-button btn-xs">
+									Cancel
+								</button>
+							</form>
+							<div class="buttons" ng-show="!rowform.$visible">
+								<button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">
+									Edit
+								</button>
+								<button class="btn btn-danger editable-table-button btn-xs"
+								        ng-click="removeProduct($index)">Delete
+								</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
