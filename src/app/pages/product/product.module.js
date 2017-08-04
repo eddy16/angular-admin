@@ -7,7 +7,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('product', {
+        .state('main.product', {
           url: '/products',
           template : '<ui-view autoscroll="true" autoscroll-body-top></ui-view>',
           abstract: true,
@@ -16,8 +16,9 @@
             icon: 'ion-ios-cart',
             order: 250,
           },
+          authenticate:true
         })
-        .state('product.new', {
+        .state('main.product.new', {
           url: '/new_product',
           templateUrl: 'app/pages/product/new_product/newProduct.html',
           controller: 'NewProductCtrl',
@@ -26,8 +27,9 @@
           sidebarMeta: {
             order: 800,
           },
+          authenticate:true
         })
-        .state('product.list', {
+        .state('main.product.list', {
           url: '/list_product',
           templateUrl: 'app/pages/product/product_list/productList.html',
           controller: 'ProductListCtrl',
@@ -36,6 +38,7 @@
           sidebarMeta: {
             order: 800,
           },
+          authenticate:true
         });
   }
 })();

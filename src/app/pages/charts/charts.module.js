@@ -16,7 +16,7 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('charts', {
+        .state('main.charts', {
           url: '/charts',
           abstract: true,
           template: '<div ui-view  autoscroll="true" autoscroll-body-top></div>',
@@ -25,6 +25,7 @@
             icon: 'ion-stats-bars',
             order: 150,
           },
+          authenticate: true
         });
   }
 

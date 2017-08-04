@@ -17,13 +17,14 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('charts.morris', {
+        .state('main.charts.morris', {
           url: '/morris',
           templateUrl: 'app/pages/charts/morris/morris.html',
           title: 'Morris',
           sidebarMeta: {
             order: 300,
-          }
+          },
+          authenticate: true
         });
   }
 

@@ -11,13 +11,14 @@
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('charts.chartJs', {
+            .state('main.charts.chartJs', {
                 url: '/chartJs',
                 templateUrl: 'app/pages/charts/chartJs/chartJs.html',
                 title: 'Chart.js',
                 sidebarMeta: {
                     order: 200
-                }
+                },
+                authenticate: true
             });
     }
 
